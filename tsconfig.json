@@ -15,17 +15,12 @@
     "rootDirs": [".", "./.react-router/types"],
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["./app/components/*"],
-      "@hooks/*": ["./app/hooks/*"],
-      "@utils/*": ["./app/utils/*"],
-      "@pages/*": ["./app/pages/*"],
+      "@app/*": ["./app/*"],
+      "@modules/*": ["./app/modules/*"],
+      "@shadcn-ui/*": ["./app/components/ui/*"],
+      "@my-components/*": ["./app/components/lib/*", "./app/components/utils/*"],
 
       "@router-types/*": [".react-router/types/app/routes/+types/*"],
-
-      "~routes/*": ["./app/routes/*"],
-      "~validators/*": ["./app/validators/*"],
-      "~types/*": ["./app/types/*"],
-      "~app/*": ["./app/*"],
     },
     "esModuleInterop": true,
     // "verbatimModuleSyntax": true,

@@ -1,10 +1,8 @@
-import { Button } from "@components/button";
-import { Image } from "@components/image";
-import { Nav } from "@components/nav";
+import { Image } from "@app/components/lib/image";
+import { Nav } from "@app/components/lib/nav";
 
-import { MapList } from "@components/map-list";
-import { navLinks } from "@utils/nav-links";
 import { LogOutIcon } from "lucide-react";
+import { MapList } from "@app/components/utils/map-list";
 
 import { Outlet } from "react-router";
 
@@ -18,9 +16,9 @@ export default function WorkspaceLayout() {
             alt="Logo da biblioteca Aurora Library"
             className="size-8 p-1.5 rounded-md bg-zinc-900"
           />
-					<Image.Fallback>
-						<div className="animate-pulse size-8 p-1.5 rounded-md bg-zinc-900" />
-					</Image.Fallback>
+          <Image.Fallback>
+            <div className="animate-pulse size-8 p-1.5 rounded-md bg-zinc-900" />
+          </Image.Fallback>
         </Image.Container>
 
         <Nav.Container>
