@@ -1,5 +1,4 @@
-import { Route } from './+types/loans';
-import { LoansPage } from '../../modules/loans/pages/loans-page';
+import { LoansPage } from '@modules/loans/pages/loans-page';
 
 export async function loader() { }
 

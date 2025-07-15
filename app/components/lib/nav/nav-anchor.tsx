@@ -4,12 +4,12 @@ import { tv } from 'tailwind-variants';
 const navAnchor = tv({
 	base: [
 		'flex items-center gap-2 text-zinc-500 after:absolute after:top-full relative',
-		'after:-left-3 after:h-0.5 after:w-1/2 after:ml-2 after:bg-zinc-800 after:mt-1',
+		'after:left-0 after:h-0.5 after:w-1/2 after:ml-0.5 after:bg-stone-900 dark:after:bg-stone-200 after:mt-1', 
 		'after:scale-x-0 hover:after:animate-underline-appear transition-all'
 	],
 	variants: {
 		isActive: {
-			true: 'text-zinc-900 after:scale-x-50 hover:opacity-80',
+			true: 'dark:text-stone-200 text-stone-900 after:scale-x-100 hover:opacity-80',
 		},
 		isPending: {
 			true: 'animate-pulse',

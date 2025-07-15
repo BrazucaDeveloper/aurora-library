@@ -1,5 +1,4 @@
-import { Route } from './+types/login';
-import { LoginPage } from '@modules/auth/pages/login-page';
+import { LoginPage } from '@app/modules/auth/ui/login-page';
 
 export async function loader({ request }: Route.LoaderArgs) { }
 
