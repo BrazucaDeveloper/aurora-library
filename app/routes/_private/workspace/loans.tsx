@@ -1,9 +1,7 @@
-import { LoansPage } from '@modules/loans/pages/loans-page';
+import { LoansPage } from '@app/modules/loans/ui/loans-page';
 
 export async function loader() { }
 
-export default function Loans(props: Route.ComponentProps) {
-	return <LoansPage {...props} />;
-}
+export default () => <LoansPage />;
 
 export async function action() { }

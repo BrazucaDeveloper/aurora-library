@@ -1,9 +1,7 @@
-import { BooksPage } from '@modules/books/pages/books-page';
+import { BooksPage } from '@app/modules/books/ui/books-page';
 
 export async function loader() { }
 
-export default function Books(props: Route.ComponentProps) {
-	return <BooksPage {...props} />;
-}
+export default () => <BooksPage />;
 
 export async function action() { }
