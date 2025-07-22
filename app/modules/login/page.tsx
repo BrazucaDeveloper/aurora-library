@@ -9,7 +9,7 @@ import {
 
 import { Button } from "@shadcn-ui/button"
 
-import { LoginForm } from "./login-form"
+import { LoginForm } from "./form"
 
 export function LoginPage() {
 	return (

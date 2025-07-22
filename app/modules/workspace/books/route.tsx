@@ -1,4 +1,4 @@
-import { BooksPage } from '@features/workspace/books';
+import { BooksPage } from './page';
 
 export async function loader() { }
 

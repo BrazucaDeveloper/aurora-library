@@ -6,7 +6,7 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious
-} from "@app/components/ui/pagination";
+} from "@shadcn-ui/pagination";
 
 import {
   Select,
@@ -14,7 +14,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue
-} from "@app/components/ui/select";
+} from "@shadcn-ui/select";
 
 import {
   Table,
@@ -26,14 +26,14 @@ import {
   TableRow,
 } from "@shadcn-ui/table"
 
-import { Button } from "@app/components/ui/button";
-import { Input } from "@app/components/ui/input";
-import { Label } from "@app/components/ui/label";
-
-import { useLoaderData } from "react-router";
-import type { loader } from "@app/routes/_private/workspace/clients";
+import { Input } from "@shadcn-ui/input";
+import { Label } from "@shadcn-ui/label";
+import { Button } from "@shadcn-ui/button";
 
 import { PlusCircleIcon, SearchIcon } from "lucide-react";
+
+import { useLoaderData } from "react-router";
+import type { loader } from "./route";
 
 export function ClientsPage() {
   const invoices = useLoaderData<typeof loader>();

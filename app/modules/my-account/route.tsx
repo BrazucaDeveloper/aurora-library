@@ -1,4 +1,4 @@
-import { MyAccountPage } from "@app/features/my-account";
+import { MyAccountPage } from "./page";
 
 export async function loader() {}
 

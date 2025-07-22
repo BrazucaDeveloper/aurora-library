@@ -1,4 +1,4 @@
-import { LoansPage } from '@features/workspace/loans';
+import { LoansPage } from './page';
 
 export async function loader() { }
 

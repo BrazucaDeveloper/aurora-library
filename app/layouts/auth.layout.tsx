@@ -1,5 +1,5 @@
-import { Image } from "@app/components/lib/image";
 import { Outlet } from "react-router";
+import { Image } from "@my-components/image";
 
 export default function AuthLayout() {
   return (

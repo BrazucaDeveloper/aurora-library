@@ -1,6 +1,5 @@
-import { ClientsPage } from '@features/workspace/clients';
-
-import type { Route } from './+types/clients';
+import { ClientsPage } from './page';
+import type { Route } from './+types/route';
 
 export async function loader({ params, request }: Route.LoaderArgs) {
   return [
