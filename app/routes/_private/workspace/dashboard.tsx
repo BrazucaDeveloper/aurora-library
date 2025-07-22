@@ -1,1 +1,3 @@
-export default () => <h1>Dashboard</h1>;
+import { DashboardPage } from "@features/workspace/dashboard";
+
+export default () => <DashboardPage />

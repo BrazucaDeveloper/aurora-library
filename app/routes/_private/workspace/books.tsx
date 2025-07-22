@@ -1,7 +1,7 @@
-import { BooksPage } from '@app/modules/books/ui/books-page';
+import { BooksPage } from '@features/workspace/books';
 
 export async function loader() { }
 
-export default () => <BooksPage />;
+export default () => <BooksPage />
 
 export async function action() { }

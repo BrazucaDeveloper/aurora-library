@@ -1,7 +1,7 @@
-import { LoansPage } from '@app/modules/loans/ui/loans-page';
+import { LoansPage } from '@features/workspace/loans';
 
 export async function loader() { }
 
-export default () => <LoansPage />;
+export default () => <LoansPage />
 
 export async function action() { }

@@ -1,7 +1,6 @@
-import { Input } from '@components/input';
-import { UploadImage } from '@app/components/lib/upload-image';
-import { Form } from 'react-router';
-import { BookSchemaType } from '~app/modules/books/schemas';
+import { Form } from "react-router";
+import { Input } from "@app/components/ui/input";
+import { UploadImage } from "@app/components/lib/upload-image";
 
 export function BookForm({ book }: { book?: BookSchemaType }) {
 	return (

@@ -1,4 +1,4 @@
-import { ClientsPage } from '@app/modules/clients/ui/clients-page';
+import { ClientsPage } from '@features/workspace/clients';
 
 import type { Route } from './+types/clients';
 
@@ -49,6 +49,6 @@ export async function loader({ params, request }: Route.LoaderArgs) {
   ]
 }
 
-export default () => <ClientsPage />;
+export default () => <ClientsPage />
 
 export async function action({  }: Route.ActionArgs) { }
