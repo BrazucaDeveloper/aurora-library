@@ -2,7 +2,7 @@ import { Form } from "react-router";
 import { Input } from "@app/components/ui/input";
 import { UploadImage } from "@app/components/lib/upload-image";
 
-export function BookForm({ book }: { book?: BookSchemaType }) {
+export function BookForm() {
 	return (
 		<Form method="post" className="flex flex-col gap-5 px-4">
 			<Input.Container>

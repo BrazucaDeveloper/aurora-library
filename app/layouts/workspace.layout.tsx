@@ -25,24 +25,24 @@ export default function WorkspaceLayout() {
             <Image.Control
               src="/logo.png"
               alt="Logo da biblioteca Aurora Library"
-              className="aspect-square size-11 p-2"
+              className="aspect-square size-10 p-2.25"
             />
             <Image.Fallback>
-              <div className="animate-pulse size-10 p-2 rounded-md bg-zinc-900" />
+              <div className="animate-pulse size-10 p-2.25 rounded-sm bg-zinc-900" />
             </Image.Fallback>
           </Image.Container>
 
           <Nav.Container className="hidden md:flex gap-0 *:p-4 *:first:pl-6 *:last:pr-6 bg-stone-950 rounded-lg ring ring-stone-700/60">
-            <Nav.Anchor to="/dashboard">
+            <Nav.Anchor to="/workspace/dashboard">
               <ChartNoAxesCombinedIcon className="size-4" /> Dashboard
             </Nav.Anchor>
-            <Nav.Anchor to="/clients">
+            <Nav.Anchor to="/workspace/clients">
               <UsersIcon className="size-4" /> Clients
             </Nav.Anchor>
-            <Nav.Anchor to="/books">
+            <Nav.Anchor to="/workspace/books">
               <BookCopyIcon className="size-4" /> Books
             </Nav.Anchor>
-            <Nav.Anchor to="/loans">
+            <Nav.Anchor to="/workspace/loans">
               <HandshakeIcon className="size-4" /> Loans
             </Nav.Anchor>
           </Nav.Container>
@@ -71,7 +71,7 @@ export default function WorkspaceLayout() {
         </Button>
       </header>
 
-      <main className="py-6 px-4 md:p-12 flex flex-col flex-grow md:rounded-xl bg-stone-100 dark:bg-stone-950 md:shadow-md ring ring-stone-700/20 dark:ring-stone-700/70">
+      <main className="py-6 px-4 md:p-10 flex flex-col flex-grow md:rounded-xl bg-stone-100 dark:bg-stone-950 md:shadow-md ring ring-stone-700/20 dark:ring-stone-700/70">
         <Outlet />
       </main>
     </div>

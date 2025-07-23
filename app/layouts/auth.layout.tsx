@@ -4,13 +4,13 @@ import { Image } from "@my-components/image";
 export default function AuthLayout() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-5 h-dvh max-h-screen w-full">
-      <div className="col-span-2 grid place-items-center">
+      <div className="col-span-2 grid place-items-center p-6">
         <div className="opacity-90 select-none flex items-center gap-3 absolute top-0 left-0 m-6 z-10">
           <Image.Container>
             <Image.Control
               src="/logo.png"
               alt="Logo da biblioteca Aurora Library"
-              className="aspect-square size-10 bg-stone-900 dark:bg-stone-700/60 shadow rounded-md p-2"
+              className="aspect-square size-10 bg-stone-900 dark:bg-stone-700/60 shadow rounded-sm p-2"
             />
             <Image.Fallback>
               <div className="animate-pulse size-9 p-1.5 rounded-sm bg-zinc-900" />
@@ -33,7 +33,7 @@ export default function AuthLayout() {
             className="object-cover h-full w-full"
           />
           <Image.Fallback>
-            <div className="animate-pulse size-8 p-1.5 rounded-md bg-zinc-900" />
+            <div className="animate-pulse h-full w-full p-1.5 rounded-md bg-zinc-800" />
           </Image.Fallback>
         </Image.Container>
       </div>
