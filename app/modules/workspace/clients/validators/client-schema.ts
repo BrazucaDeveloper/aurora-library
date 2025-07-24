@@ -1,5 +1,3 @@
-import { capitalize } from '@utils/capitalize';
-import { regex } from '@utils/regex';
 import z from 'zod';
 
 export const clientSchema = z.object({

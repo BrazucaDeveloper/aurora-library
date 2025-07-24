@@ -1,7 +1,6 @@
 import {
   Pagination,
   PaginationContent,
-  PaginationEllipsis,
   PaginationItem,
   PaginationLink,
   PaginationNext,
@@ -30,13 +29,14 @@ import { Input } from "@shadcn-ui/input";
 import { Label } from "@shadcn-ui/label";
 import { Button } from "@shadcn-ui/button";
 
-import { PlusCircleIcon, SearchIcon } from "lucide-react";
+import { PenLineIcon, SearchIcon, TrashIcon } from "lucide-react";
 
+import { loader } from "./route";
 import { useLoaderData } from "react-router";
-import type { loader } from "./route";
+import { CreateClientDialog } from "./features/create-client";
 
 export function ClientsPage() {
-  const invoices = useLoaderData<typeof loader>();
+  const { clients } = useLoaderData<typeof loader>();
 
   return (
     <>
@@ -46,9 +46,7 @@ export function ClientsPage() {
             Aurora clients
           </h1>
 
-          <Button className="flex items-center">
-            <PlusCircleIcon /> Add Client
-          </Button>
+          <CreateClientDialog />
         </div>
 
         <div className="flex items-center justify-between flex-wrap gap-6">
@@ -64,19 +62,17 @@ export function ClientsPage() {
           <div className="flex items-center justify-between gap-4">
             <div className="space-y-2">
               <Label>Order By</Label>
-
               <Select>
                 <SelectTrigger className="w-[180px]">
                   <SelectValue placeholder="---" />
                 </SelectTrigger>
-
                 <SelectContent>
                   <SelectItem value="none">---</SelectItem>
-                  <SelectItem value="apple">Apple</SelectItem>
-                  <SelectItem value="banana">Banana</SelectItem>
-                  <SelectItem value="blueberry">Blueberry</SelectItem>
-                  <SelectItem value="grapes">Grapes</SelectItem>
-                  <SelectItem value="pineapple">Pineapple</SelectItem>
+                  <SelectItem value="Name">Name</SelectItem>
+                  <SelectItem value="Email">Email</SelectItem>
+                  <SelectItem value="Phone">Phone</SelectItem>
+                  <SelectItem value="State">State</SelectItem>
+                  <SelectItem value="City">City</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -92,7 +88,7 @@ export function ClientsPage() {
         </div>
       </header>
 
-      <div className="flex-grow">
+      <div className="flex-grow pb-3">
         <Table>
           <TableHeader>
             <TableRow>
@@ -102,26 +98,36 @@ export function ClientsPage() {
               <TableHead>CPF</TableHead>
               <TableHead>Phone</TableHead>
               <TableHead>Address</TableHead>
+              <TableHead>Actions</TableHead>
             </TableRow>
           </TableHeader>
-          
+
           <TableBody>
-            {invoices.map((invoice) => (
-              <TableRow key={invoice.invoice}>
-                <TableCell className="font-medium">{invoice.invoice}</TableCell>
-                <TableCell>{invoice.paymentStatus}</TableCell>
-                <TableCell>{invoice.paymentMethod}</TableCell>
-                <TableCell>{invoice.paymentMethod}</TableCell>
-                <TableCell>{invoice.totalAmount}</TableCell>
-                <TableCell>{invoice.totalAmount}</TableCell>
+            {clients.map((clients) => (
+              <TableRow key={clients.id}>
+                <TableCell className="font-medium">{clients.name}</TableCell>
+                <TableCell>
+                  <span className={
+                    `inline-flex items-center gap-2 rounded-full px-2 py-1 text-xs font-medium ${clients.status === 'active' ? 'bg-green-300/20 text-green-200 ring ring-emerald-200/30' : 'bg-rose-400/20 text-red-200 ring ring-red-300/30'}`
+                  }>{clients.status}</span>
+                </TableCell>
+                <TableCell>{clients.email}</TableCell>
+                <TableCell>{clients.cpf}</TableCell>
+                <TableCell>{clients.phone}</TableCell>
+                <TableCell>{clients.address}</TableCell>
+                <TableCell className="*:inline space-x-3 *:size-4.5">
+                  <PenLineIcon />
+                  <TrashIcon className="text-rose-400" />
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
 
           <TableFooter>
             <TableRow>
-              <TableCell colSpan={5}>Total</TableCell>
-              <TableCell className="text-right">$2,500.00</TableCell>
+              <TableCell colSpan={7} className="text-right font-medium">
+                Listing 10 clients of {clients.length}
+              </TableCell>
             </TableRow>
           </TableFooter>
         </Table>
@@ -133,18 +139,13 @@ export function ClientsPage() {
             <PaginationPrevious href="#" />
           </PaginationItem>
           <PaginationItem>
-            <PaginationLink href="#">1</PaginationLink>
+            <PaginationLink href="#" isActive>1</PaginationLink>
           </PaginationItem>
           <PaginationItem>
-            <PaginationLink href="#" isActive>
-              2
-            </PaginationLink>
+            <PaginationLink href="#">2</PaginationLink>
           </PaginationItem>
           <PaginationItem>
             <PaginationLink href="#">3</PaginationLink>
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationEllipsis />
           </PaginationItem>
           <PaginationItem>
             <PaginationNext href="#" />
