@@ -1,7 +1,6 @@
-import { hash } from "crypto";
-import { faker } from '@faker-js/faker';
+import { generateFakeClients } from "../test/clients.mock";
 
-interface Client {
+export interface Client {
   id: string;
   name: string;
   email: string;
@@ -12,17 +11,15 @@ interface Client {
 }
 
 export function useClients() {
-  const getClients = () => {
-    return Array.from({ length: 10 }, (_, i) => ({
-      id: hash('sha256', `client-${i}`),
-      name: `${faker.person.firstName()} ${faker.person.lastName()}`,
-      email: faker.internet.email(),
-      phone: faker.phone.number({ style: 'national' }),
-      status: faker.helpers.arrayElement(['active', 'inactive']),
-      cpf: faker.helpers.replaceSymbols('###.###.###-##'),
-      address: faker.location.streetAddress(),
-    }));
+  let clients: Client[] | null = null;
+
+  const getClients = (): Client[] => {
+    if (clients && clients.length > 0) return clients;
+    return clients ??= generateFakeClients();
   }
+
+  // const updateClient = (cid: string, updatedData: Partial<Client>): Client => {
+  // }
 
   return { getClients };
 }

@@ -8,6 +8,7 @@ import { Outlet } from "react-router";
 import {
   BookCopyIcon,
   ChartNoAxesCombinedIcon,
+  Contrast,
   HandshakeIcon,
   LogOutIcon,
   MenuIcon,
@@ -15,13 +16,14 @@ import {
   UsersIcon,
   UserSquareIcon
 } from "lucide-react";
+import { Separator } from "@app/components/ui/separator";
 
 export default function WorkspaceLayout() {
   return (
     <div className="flex flex-col h-dvh w-full bg-stone-200 dark:bg-stone-900 ">
-      <header className="flex items-center h-16 justify-between my-3 mx-8">
+      <header className="flex items-center justify-between py-4 px-8 bg-background shadow ring ring-foreground/15">
         <div className="flex items-center gap-8">
-          <Image.Container className="bg-stone-950 rounded-sm ring ring-stone-700/70 shadow">
+          <Image.Container className="bg-stone-800 rounded-sm ring ring-stone-700 shadow">
             <Image.Control
               src="/logo.png"
               alt="Logo da biblioteca Aurora Library"
@@ -48,26 +50,22 @@ export default function WorkspaceLayout() {
           </Nav.Container>
         </div>
 
-        <div className="hidden md:flex items-center gap-4">
+        <div className="h-6 md:flex items-center space-x-4 hidden">
           <a href="/my-account">
             <Button variant="outline">
               <UserSquareIcon />
               <span className="hidden lg:inline">My account</span>
             </Button>
           </a>
-
           <a href="/">
             <Button variant="destructive">
               <LogOutIcon />
               <span className="hidden lg:inline">Logout</span>
             </Button>
           </a>
-
-          <div className="hidden lg:block h-7 w-0.5 rounded-full bg-stone-600/65"></div>
-
-          <Button>
-            <SunIcon />
-            <span className="hidden lg:inline">Light theme</span>
+          <Separator orientation="vertical" className="dark:bg-stone-500/80" />
+          <Button title="Toggle dark mode">
+            <Contrast />
           </Button>
         </div>
 
@@ -76,7 +74,7 @@ export default function WorkspaceLayout() {
         </Button>
       </header>
 
-      <main className="py-6 px-4 md:py-6 md:px-8 flex flex-col flex-grow md:rounded-t-3xl bg-stone-100 dark:bg-stone-950 md:shadow-md ring ring-stone-700/20 dark:ring-stone-700/70">
+      <main className="py-6 px-4 md:py-6 md:px-8 flex flex-col flex-grow">
         <Outlet />
       </main>
     </div>

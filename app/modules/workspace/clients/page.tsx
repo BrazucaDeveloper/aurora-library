@@ -1,42 +1,26 @@
-import {
-  Pagination,
-  PaginationContent,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious
-} from "@shadcn-ui/pagination";
-
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue
-} from "@shadcn-ui/select";
-
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableFooter,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@shadcn-ui/table"
+import * as Table from "@shadcn-ui/table";
+import * as Select from "@shadcn-ui/select";
+import * as Pagination from "@shadcn-ui/pagination";
+import * as AlertDialog from "@shadcn-ui/alert-dialog"
 
 import { Input } from "@shadcn-ui/input";
 import { Label } from "@shadcn-ui/label";
+import { Badge } from "@shadcn-ui/badge";
 import { Button } from "@shadcn-ui/button";
 
-import { PenLineIcon, SearchIcon, TrashIcon } from "lucide-react";
-
 import { loader } from "./route";
+import { useState } from "react";
 import { useLoaderData } from "react-router";
-import { CreateClientDialog } from "./features/create-client";
+
+import { CreateClientDialog } from "./_components/create-client";
+import { UpdateClientDialog } from "./_components/update-client";
+import { PenLineIcon, SearchIcon, TrashIcon } from "lucide-react";
+import { InputSearch } from "../_components/input-search";
 
 export function ClientsPage() {
   const { clients } = useLoaderData<typeof loader>();
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isAlertDialogOpen, setIsAlertDialogOpen] = useState(false);
 
   return (
     <>
@@ -45,113 +29,133 @@ export function ClientsPage() {
           <h1 className="scroll-m-20 text-center text-4xl font-bold tracking-tight text-balance">
             Aurora clients
           </h1>
-
           <CreateClientDialog />
         </div>
 
         <div className="flex items-center justify-between flex-wrap gap-6">
           <div className="space-y-2">
-            <Label className="">Filter status by</Label>
-            <div className="flex items-center gap-3">
-              <Button>All</Button>
-              <Button variant="outline">Active</Button>
-              <Button variant="outline">Inactive</Button>
-            </div>
+            <Label>Filter status by</Label>
+            <Select.Select defaultValue="all">
+              <Select.SelectTrigger className="w-[180px]">
+                <Select.SelectValue />
+              </Select.SelectTrigger>
+              <Select.SelectContent>
+                <Select.SelectItem value="all">All</Select.SelectItem>
+                <Select.SelectItem value="active">Active</Select.SelectItem>
+                <Select.SelectItem value="inactive">Inactive</Select.SelectItem>
+              </Select.SelectContent>
+            </Select.Select>
           </div>
 
           <div className="flex items-center justify-between gap-4">
             <div className="space-y-2">
               <Label>Order By</Label>
-              <Select>
-                <SelectTrigger className="w-[180px]">
-                  <SelectValue placeholder="---" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="none">---</SelectItem>
-                  <SelectItem value="Name">Name</SelectItem>
-                  <SelectItem value="Email">Email</SelectItem>
-                  <SelectItem value="Phone">Phone</SelectItem>
-                  <SelectItem value="State">State</SelectItem>
-                  <SelectItem value="City">City</SelectItem>
-                </SelectContent>
-              </Select>
+              <Select.Select defaultValue="none">
+                <Select.SelectTrigger className="w-[180px]">
+                  <Select.SelectValue />
+                </Select.SelectTrigger>
+                <Select.SelectContent>
+                  <Select.SelectItem value="none">---</Select.SelectItem>
+                  <Select.SelectItem value="name">Name</Select.SelectItem>
+                  <Select.SelectItem value="email">Email</Select.SelectItem>
+                  <Select.SelectItem value="phone">Phone</Select.SelectItem>
+                  <Select.SelectItem value="state">State</Select.SelectItem>
+                  <Select.SelectItem value="city">City</Select.SelectItem>
+                </Select.SelectContent>
+              </Select.Select>
             </div>
 
             <div className="space-y-2">
-              <Label>Search</Label>
-              <div className="relative flex flex-col items-start gap-4">
-                <Input placeholder="Search..." className="pr-8 md:min-w-80" />
-                <SearchIcon className="size-4 pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-stone-500" />
-              </div>
+              <Label htmlFor="client-search">Search</Label>
+              <InputSearch />
             </div>
           </div>
         </div>
       </header>
 
       <div className="flex-grow pb-3">
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead>Name</TableHead>
-              <TableHead>Status</TableHead>
-              <TableHead>Email</TableHead>
-              <TableHead>CPF</TableHead>
-              <TableHead>Phone</TableHead>
-              <TableHead>Address</TableHead>
-              <TableHead>Actions</TableHead>
-            </TableRow>
-          </TableHeader>
+        <Table.Table>
+          <Table.TableCaption>A list of all Aurora clients.</Table.TableCaption>
+          <Table.TableHeader>
+            <Table.TableRow>
+              <Table.TableHead>Name</Table.TableHead>
+              <Table.TableHead>Status</Table.TableHead>
+              <Table.TableHead>Email</Table.TableHead>
+              <Table.TableHead>CPF</Table.TableHead>
+              <Table.TableHead>Phone</Table.TableHead>
+              <Table.TableHead>Address</Table.TableHead>
+              <Table.TableHead>Actions</Table.TableHead>
+            </Table.TableRow>
+          </Table.TableHeader>
 
-          <TableBody>
+          <Table.TableBody>
             {clients.map((clients) => (
-              <TableRow key={clients.id}>
-                <TableCell className="font-medium">{clients.name}</TableCell>
-                <TableCell>
-                  <span className={
-                    `inline-flex items-center gap-2 rounded-full px-2 py-1 text-xs font-medium ${clients.status === 'active' ? 'bg-green-300/20 text-green-200 ring ring-emerald-200/30' : 'bg-rose-400/20 text-red-200 ring ring-red-300/30'}`
-                  }>{clients.status}</span>
-                </TableCell>
-                <TableCell>{clients.email}</TableCell>
-                <TableCell>{clients.cpf}</TableCell>
-                <TableCell>{clients.phone}</TableCell>
-                <TableCell>{clients.address}</TableCell>
-                <TableCell className="*:inline space-x-3 *:size-4.5">
-                  <PenLineIcon />
-                  <TrashIcon className="text-rose-400" />
-                </TableCell>
-              </TableRow>
+              <Table.TableRow key={clients.id}>
+                <Table.TableCell className="font-medium">{clients.name}</Table.TableCell>
+                <Table.TableCell>
+                  <Badge variant={clients.status === 'active' ? 'default' : 'destructive'}>
+                    {clients.status}
+                  </Badge>
+                </Table.TableCell>
+                <Table.TableCell>{clients.email}</Table.TableCell>
+                <Table.TableCell>{clients.cpf}</Table.TableCell>
+                <Table.TableCell>{clients.phone}</Table.TableCell>
+                <Table.TableCell>{clients.address}</Table.TableCell>
+                <Table.TableCell className="*:inline space-x-3 *:size-4.5">
+                  <Button variant="ghost" size="icon" onClick={() => setIsDialogOpen(true)}>
+                    <PenLineIcon />
+                  </Button>
+                  <Button variant="ghost" size="icon" onClick={() => setIsAlertDialogOpen(true)}>
+                    <TrashIcon className="text-rose-400" />
+                  </Button>
+                </Table.TableCell>
+              </Table.TableRow>
             ))}
-          </TableBody>
+          </Table.TableBody>
 
-          <TableFooter>
-            <TableRow>
-              <TableCell colSpan={7} className="text-right font-medium">
+          <Table.TableFooter>
+            <Table.TableRow>
+              <Table.TableCell colSpan={7} className="text-right font-medium">
                 Listing 10 clients of {clients.length}
-              </TableCell>
-            </TableRow>
-          </TableFooter>
-        </Table>
+              </Table.TableCell>
+            </Table.TableRow>
+          </Table.TableFooter>
+        </Table.Table>
       </div>
 
-      <Pagination>
-        <PaginationContent>
-          <PaginationItem>
-            <PaginationPrevious href="#" />
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationLink href="#" isActive>1</PaginationLink>
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationLink href="#">2</PaginationLink>
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationLink href="#">3</PaginationLink>
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationNext href="#" />
-          </PaginationItem>
-        </PaginationContent>
-      </Pagination>
+      <UpdateClientDialog open={isDialogOpen} onChangeOpen={setIsDialogOpen} />
+
+      <AlertDialog.AlertDialog open={isAlertDialogOpen} onOpenChange={setIsAlertDialogOpen}>
+        <AlertDialog.AlertDialogContent>
+          <AlertDialog.AlertDialogHeader>
+            <AlertDialog.AlertDialogTitle>Are you absolutely sure?</AlertDialog.AlertDialogTitle>
+            <AlertDialog.AlertDialogDescription>
+              This action cannot be undone. This will permanently delete your
+              account and remove your data from our servers.
+            </AlertDialog.AlertDialogDescription>
+          </AlertDialog.AlertDialogHeader>
+          <AlertDialog.AlertDialogFooter>
+            <AlertDialog.AlertDialogCancel>Cancel</AlertDialog.AlertDialogCancel>
+            <AlertDialog.AlertDialogAction>Continue</AlertDialog.AlertDialogAction>
+          </AlertDialog.AlertDialogFooter>
+        </AlertDialog.AlertDialogContent>
+      </AlertDialog.AlertDialog>
+
+      <Pagination.Pagination>
+        <Pagination.PaginationContent>
+          <Pagination.PaginationItem>
+            <Pagination.PaginationPrevious href="#" />
+          </Pagination.PaginationItem>
+
+          <Pagination.PaginationItem>
+            <Pagination.PaginationLink href="#" isActive>1</Pagination.PaginationLink>
+          </Pagination.PaginationItem>
+
+          <Pagination.PaginationItem>
+            <Pagination.PaginationNext href="#" />
+          </Pagination.PaginationItem>
+        </Pagination.PaginationContent>
+      </Pagination.Pagination>
     </>
   );
 }

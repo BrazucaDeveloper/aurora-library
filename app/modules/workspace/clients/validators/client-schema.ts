@@ -1,6 +1,8 @@
 import z from 'zod';
+import { regex } from '@app/lib/regex';
+import { capitalize } from '@app/lib/captalize';
 
-export const clientSchema = z.object({
+export const ClientSchema = z.object({
 	name: z
 		.string()
 		.nonempty('Campo vazio. Insira seu nome completo.')

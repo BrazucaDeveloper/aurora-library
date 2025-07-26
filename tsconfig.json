@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@app/*": ["./app/*"],
-      "@features/*": ["app/modules/*"],
+      "@modules/*": ["app/modules/*"],
+      "~types/*": ["./app/types/*"],
       "@shadcn-ui/*": ["./app/components/ui/*"],
       "@my-components/*": ["./app/components/lib/*", "./app/components/utils/*"],
       "@router-types/*": [".react-router/types/app/routes/+types/*"],
