@@ -8,6 +8,8 @@ export async function loader({ params }: Route.LoaderArgs) {
   return { clients: getClients() };
 }
 
-export default () => <ClientsPage />;
+export default function ClientPage() {
+  return <ClientsPage />;
+}
 
 export async function action({  }: Route.ActionArgs) { }

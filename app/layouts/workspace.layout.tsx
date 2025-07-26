@@ -1,10 +1,3 @@
-import { Button } from "@shadcn-ui/button";
-
-import { Nav } from "@my-components/nav";
-import { Image } from "@my-components/image";
-
-import { Outlet } from "react-router";
-
 import {
   BookCopyIcon,
   ChartNoAxesCombinedIcon,
@@ -12,16 +5,24 @@ import {
   HandshakeIcon,
   LogOutIcon,
   MenuIcon,
-  SunIcon,
   UsersIcon,
   UserSquareIcon
 } from "lucide-react";
-import { Separator } from "@app/components/ui/separator";
+
+import { Button } from "@shadcn-ui/button";
+import { Separator } from "@shadcn-ui/separator";
+
+import { Nav } from "@my-components/nav";
+import { Image } from "@my-components/image";
+
+import { Link, Outlet } from "react-router";
 
 export default function WorkspaceLayout() {
   return (
     <div className="flex flex-col h-dvh w-full bg-stone-200 dark:bg-stone-900 ">
-      <header className="flex items-center justify-between py-4 px-8 bg-background shadow ring ring-foreground/15">
+      <header
+        className="flex items-center justify-between py-4 px-8 bg-background shadow ring ring-foreground/15"
+      >
         <div className="flex items-center gap-8">
           <Image.Container className="bg-stone-800 rounded-sm ring ring-stone-700 shadow">
             <Image.Control
@@ -51,18 +52,16 @@ export default function WorkspaceLayout() {
         </div>
 
         <div className="h-6 md:flex items-center space-x-4 hidden">
-          <a href="/my-account">
+          <Link to="/my-account">
             <Button variant="outline">
               <UserSquareIcon />
               <span className="hidden lg:inline">My account</span>
             </Button>
-          </a>
-          <a href="/">
-            <Button variant="destructive">
-              <LogOutIcon />
-              <span className="hidden lg:inline">Logout</span>
-            </Button>
-          </a>
+          </Link>
+          <Button variant="destructive">
+            <LogOutIcon />
+            <span className="hidden lg:inline">Logout</span>
+          </Button>
           <Separator orientation="vertical" className="dark:bg-stone-500/80" />
           <Button title="Toggle dark mode">
             <Contrast />

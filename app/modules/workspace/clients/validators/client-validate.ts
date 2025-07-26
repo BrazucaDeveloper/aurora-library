@@ -1,4 +1,4 @@
-import { clientSchema } from "./client-schema";
+import { ClientSchema } from "./client-schema";
 
 export function validateClient(formData: FormData) {
   

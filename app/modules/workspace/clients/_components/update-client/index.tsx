@@ -12,9 +12,14 @@ import { Button } from "@shadcn-ui/button";
 
 import { ClientForm } from "./form";
 
-export function UpdateClientDialog({ open, onChangeOpen }) {
+interface UpdateClientDialogProps {
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+}
+
+export function UpdateClientDialog({ open, onOpenChange }: UpdateClientDialogProps) {
   return (
-    <Dialog open={open} onOpenChange={onChangeOpen}>
+    <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle>Update Client</DialogTitle>
