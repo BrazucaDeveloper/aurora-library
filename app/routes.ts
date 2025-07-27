@@ -16,10 +16,9 @@ export default [
   ...prefix('workspace', [
     layout('layouts/workspace.layout.tsx', [
       route('/dashboard', 'modules/workspace/dashboard/route.tsx'),
-      route('/clients/:cid?', 'modules/workspace/clients/route.tsx'),
-      route('/books/:bid?', 'modules/workspace/books/route.tsx'),
-      route('/loans/:lid?', 'modules/workspace/loans/route.tsx'),
+      route('/clients', 'modules/workspace/clients/route.tsx'),
+      route('/books', 'modules/workspace/books/route.tsx'),
+      route('/loans', 'modules/workspace/loans/route.tsx'),
     ]),
   ])
-
 ] satisfies RouteConfig;

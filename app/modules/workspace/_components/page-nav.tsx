@@ -7,7 +7,14 @@ import {
   PaginationPrevious
 } from "@shadcn-ui/pagination";
 
-export function PageNav() {
+interface PageNavProps {
+  current: number;
+  total: number;
+  perPage?: number;
+  offset?: number;
+}
+
+export function PageNav({ current, total, perPage = 10, offset = 3 }: PageNavProps) {
   return (
     <Pagination>
       <PaginationContent>
