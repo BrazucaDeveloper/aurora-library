@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 import { clientLoader } from "./route";
+import { Fragment, useEffect, useState } from "react";
 import { data, Form, useLoaderData, useSearchParams } from "react-router";
 
 import { PageNav } from "../_components/page-nav";
@@ -25,11 +25,22 @@ import { PenLineIcon, SearchIcon, TrashIcon } from "lucide-react";
 import { Input } from "@shadcn-ui/input";
 
 export function ClientsPage() {
-  const { clients } = useLoaderData<typeof clientLoader>();
+  const { clients, pagination } = useLoaderData<typeof clientLoader>();
   const [searchParams, setSearchParams] = useSearchParams();
+
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isAlertDialogOpen, setIsAlertDialogOpen] = useState(false);
 
+  function handleOpenDialog(action: string, cid: string) {
+    if (action === 'update') {
+      setIsDialogOpen(true);
+    }
+    if (action === 'delete') {
+      setIsAlertDialogOpen(true);
+    }
+    handleSearchParams('cid', cid);
+  }
+  
   function handleDialog(isOpen: boolean) {
     setIsDialogOpen(isOpen);
     if (!isOpen) clearCid();
@@ -38,6 +49,10 @@ export function ClientsPage() {
   function handleAlertDialog(isOpen: boolean) {
     setIsAlertDialogOpen(isOpen);
     if (!isOpen) clearCid();
+  }
+
+  function clearCid() {
+    handleSearchParams('cid', '');
   }
 
   function handleSearchParams(key: string, value: string) {
@@ -52,19 +67,12 @@ export function ClientsPage() {
     });
   }
 
-  function clearCid() { handleSearchParams('cid', ''); }
-
-  function handleDialogOpen(action: 'update' | 'delete', cid: string) {
-    action === 'update' ? setIsDialogOpen(true) : setIsAlertDialogOpen(true);
-    handleSearchParams('cid', cid);
-  }
-
   function handleFilterChange(key: string, value: string) {
     handleSearchParams(key, value);
   }
 
   return (
-    <>
+    <Fragment>
       <header className="flex flex-col justify-center gap-5 mb-6 divide-y">
         <div className="flex items-center justify-between w-full pb-4">
           <h1 className="scroll-m-20 text-center text-4xl font-bold tracking-tight text-balance">
@@ -166,12 +174,12 @@ export function ClientsPage() {
                   <Button
                     size="icon"
                     variant="ghost"
-                    onClick={() => handleDialogOpen('update', client.id)}
+                    onClick={() => handleOpenDialog('update', client.id)}
                   ><PenLineIcon /></Button>
                   <Button
                     size="icon"
                     variant="ghost"
-                    onClick={() => handleDialogOpen('delete', client.id)}
+                    onClick={() => handleOpenDialog('delete', client.id)}
                   ><TrashIcon className="text-rose-400" /></Button>
                 </TableCell>
               </TableRow>
@@ -188,9 +196,15 @@ export function ClientsPage() {
         </Table>
       </div>
 
-      <UpdateClientDialog open={isDialogOpen} onOpenChange={handleDialog} />
-      <DeleteClientDialog open={isAlertDialogOpen} onOpenChange={handleAlertDialog} />
-      <PageNav current={1} total={1} />
-    </>
+      <UpdateClientDialog
+        open={isDialogOpen}
+        onOpenChange={handleDialog}
+      />
+      <DeleteClientDialog
+        open={isAlertDialogOpen}
+        onOpenChange={handleAlertDialog}
+      />
+      <PageNav current={pagination.current} total={pagination.total()} />
+    </Fragment>
   );
 }
