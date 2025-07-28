@@ -1,6 +1,6 @@
-import z from 'zod';
-import { regex } from '@app/lib/regex';
 import { capitalize } from '@app/lib/captalize';
+import { regex } from '@app/lib/regex';
+import z from 'zod';
 
 export const ClientSchema = z.object({
 	name: z
@@ -37,7 +37,7 @@ export const ClientSchema = z.object({
 			.min(1, 'Número inválido. Insira um número maior que 0 neste campo.')
 			.max(
 				999_999,
-				'Número muito grande. Este campo aceita até o valor máximo de 999.999',
+				'Número muito grande. Este campo aceita até o valor máximo de 999.999'
 			),
 	}),
 });

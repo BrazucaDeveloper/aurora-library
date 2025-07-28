@@ -1,3 +1,3 @@
 export function MyAccountPage() {
-  return <h1>My Account</h1>;
+	return <h1>My Account</h1>;
 }

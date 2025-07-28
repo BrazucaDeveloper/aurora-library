@@ -4,4 +4,4 @@ type LoginResponseServerType = {
 	token: string;
 };
 
-export async function validateLogin(formData: FormData) { }
+export async function validateLogin(formData: FormData) {}

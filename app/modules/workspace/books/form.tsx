@@ -1,15 +1,15 @@
-import { Form } from "react-router";
-import { Input } from "@app/components/ui/input";
-import { UploadImage } from "@app/components/lib/upload-image";
+import { UploadImage } from '@app/components/lib/upload-image';
+import { Input } from '@app/components/ui/input';
+import { Form } from 'react-router';
 
 export function BookForm() {
 	return (
-		<Form method="post" className="flex flex-col gap-5 px-4">
+		<Form method='post' className='flex flex-col gap-5 px-4'>
 			<Input.Container>
 				<Input.Label>Título</Input.Label>
 				<Input.Control
-					name="title"
-					placeholder="ex: A banana que devia ao agiota 2"
+					name='title'
+					placeholder='ex: A banana que devia ao agiota 2'
 					defaultValue={book?.title}
 				/>
 			</Input.Container>
@@ -17,8 +17,8 @@ export function BookForm() {
 			<Input.Container>
 				<Input.Label>Autor(a)</Input.Label>
 				<Input.Control
-					name="author"
-					placeholder="ex: João da Silva"
+					name='author'
+					placeholder='ex: João da Silva'
 					defaultValue={book?.author}
 				/>
 			</Input.Container>
@@ -26,20 +26,20 @@ export function BookForm() {
 			<Input.Container>
 				<Input.Label>Editora</Input.Label>
 				<Input.Control
-					name="publisher"
-					placeholder="ex: Editora XYZ"
+					name='publisher'
+					placeholder='ex: Editora XYZ'
 					defaultValue={book?.publisher}
 				/>
 			</Input.Container>
 
-			<div className="flex justify-between gap-3">
+			<div className='flex justify-between gap-3'>
 				<Input.Container>
 					<Input.Label>Ano</Input.Label>
 					<Input.Control
 						min={1900}
-						type="number"
-						name="year"
-						placeholder="ex: 1990"
+						type='number'
+						name='year'
+						placeholder='ex: 1990'
 						defaultValue={''}
 					/>
 				</Input.Container>
@@ -48,9 +48,9 @@ export function BookForm() {
 					<Input.Label>Quantidade</Input.Label>
 					<Input.Control
 						min={1}
-						type="number"
-						name="quantity_books"
-						placeholder="ex: 10"
+						type='number'
+						name='quantity_books'
+						placeholder='ex: 10'
 						defaultValue={''}
 					/>
 				</Input.Container>
@@ -58,7 +58,7 @@ export function BookForm() {
 
 			<UploadImage.Container>
 				<UploadImage.Label>Capa do livro</UploadImage.Label>
-				<UploadImage.Control name="book_cover" />
+				<UploadImage.Control name='book_cover' />
 			</UploadImage.Container>
 		</Form>
 	);

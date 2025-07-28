@@ -1,5 +1,3 @@
-import { ClientSchema } from "./client-schema";
+import { ClientSchema } from './client-schema';
 
-export function validateClient(formData: FormData) {
-  
-}
+export function validateClient(formData: FormData) {}

@@ -1,20 +1,20 @@
-import { ComponentProps, useEffect } from "react";
-import { getContext } from "./image-context";
-import { Show } from "@app/components/utils/show";
-import { twMerge } from "tailwind-merge";
+import { Show } from '@app/components/utils/show';
+import { type ComponentProps, useEffect } from 'react';
+import { twMerge } from 'tailwind-merge';
+import { getContext } from './image-context';
 
-type ImageControlProps = ComponentProps<"img">;
+type ImageControlProps = ComponentProps<'img'>;
 
 export function ImageControl({ className, src, ...props }: ImageControlProps) {
-  const { setImageSrc, state } = getContext();
+	const { setImageSrc, state } = getContext();
 
-  useEffect(() => {
-    setImageSrc(src ?? "");
-  }, [src]);
+	useEffect(() => {
+		setImageSrc(src ?? '');
+	});
 
-  return (
-    <Show condition={state.showFallback === false}>
-      <img className={twMerge("", className)} src={src} {...props} />
-    </Show>
-  );
+	return (
+		<Show condition={state.showFallback === false}>
+			<img className={twMerge('', className)} src={src} {...props} />
+		</Show>
+	);
 }

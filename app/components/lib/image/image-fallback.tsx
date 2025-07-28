@@ -1,21 +1,21 @@
-import { Show } from "@app/components/utils/show";
-import { ReactNode, useEffect } from "react";
-import { getContext } from "./image-context";
+import { Show } from '@app/components/utils/show';
+import { type ReactNode, useEffect } from 'react';
+import { getContext } from './image-context';
 
 export function ImageFallback({ children }: { children: ReactNode }) {
-  const { setShowFallback, state } = getContext();
+	const { setShowFallback, state } = getContext();
 
-  useEffect(() => {
-    if (!state.src || state.src === "") {
-      return;
-    }
+	useEffect(() => {
+		if (!state.src || state.src === '') {
+			return;
+		}
 
-    const image = new Image();
-    image.src = state.src;
+		const image = new Image();
+		image.src = state.src;
 
-    image.onload = () => setShowFallback(false);
-    image.onerror = () => setShowFallback(true);
-  }, [state.src]);
+		image.onload = () => setShowFallback(false);
+		image.onerror = () => setShowFallback(true);
+	}, [state.src]);
 
-  return <Show condition={state.showFallback === true}>{children}</Show>;
+	return <Show condition={state.showFallback === true}>{children}</Show>;
 }

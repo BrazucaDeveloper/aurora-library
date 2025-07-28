@@ -1,5 +1,5 @@
 import { DotIcon } from 'lucide-react';
-import { ComponentProps } from 'react';
+import type { ComponentProps } from 'react';
 import { tv } from 'tailwind-variants';
 
 const spin = tv({

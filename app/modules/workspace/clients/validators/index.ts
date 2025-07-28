@@ -1,4 +1,4 @@
-import { ClientSchema } from "./client-schema";
-import { validateClient } from "./client-validate";
+import { ClientSchema } from './client-schema';
+import { validateClient } from './client-validate';
 
-export { validateClient, ClientSchema }
+export { validateClient, ClientSchema };

@@ -1,12 +1,12 @@
-import { LoansPage } from './page';
 import { WorkspaceFallback } from '../_components/workspace-fallback';
+import { LoansPage } from './page';
 
-export async function clientLoader() { }
+export async function clientLoader() {}
 
 export function HydrateFallback() {
-  return <WorkspaceFallback />;
+	return <WorkspaceFallback />;
 }
 
-export default () => <LoansPage />
+export default () => <LoansPage />;
 
-export async function action() { }
+export async function action() {}

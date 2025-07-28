@@ -1,18 +1,18 @@
-import { Fragment, ReactNode } from "react";
+import { Fragment, type ReactNode } from 'react';
 
 type ShowProps = {
-  condition: boolean;
-  children: ReactNode;
-  fallback?: ReactNode;
-}
+	condition: boolean;
+	children: ReactNode;
+	fallback?: ReactNode;
+};
 
 export function Show({
-  condition,
-  children,
-  fallback = <Fragment />,
+	condition,
+	children,
+	fallback = <Fragment />,
 }: ShowProps) {
-  if (condition) {
-    return children;
-  }
-  return fallback;
+	if (condition) {
+		return children;
+	}
+	return fallback;
 }

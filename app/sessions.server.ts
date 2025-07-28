@@ -23,7 +23,6 @@ const { getSession, commitSession, destroySession } =
 			secrets: ['s3cret1'],
 			secure: true,
 		},
-	}
-);
+	});
 
 export { getSession, commitSession, destroySession };
