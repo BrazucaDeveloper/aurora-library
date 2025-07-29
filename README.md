@@ -53,14 +53,14 @@ Siga o passo a passo de como instalar o projeto na sua máquina.
 4. **Acesse o projeto pelo navegador no link: http://localhost:5173/**
 
 ## ⚒️ Ferramentas utilizadas
-- 🐘 [Node](https://nodejs.org/en) (Runtime Javascript)
-- 🐬 [Pnpm](https://pnpm.io/pt/) (Gerenciador de pacotes)
-- 🐳 [React Router v7](https://reactrouter.com/home) (Framework Javascript)
-- ⚙️ [Shadcn UI](https://ui.shadcn.com/) (Biblioteca de componentes)
-- 😘 [Biome](https://biomejs.dev/guides/configure-biome/) (Formatador/Linter Javascript)
-- 🌬️ [TailwindCSS](https://tailwindcss.com/) (Framework CSS)
-- 🌬️ [Faker.js](https://fakerjs.dev/) (Biblioteca para mocking de dados)
-- 🌬️ [Zod](https://zod.dev/) (Biblioteca de validação de dados)
+- ⚡ [Node](https://nodejs.org/en) (Runtime Javascript)
+- 📦 [Pnpm](https://pnpm.io/pt/) (Gerenciador de pacotes)
+- 🚀 [React Router v7](https://reactrouter.com/home) (Framework Javascript)
+- 🎨 [Shadcn UI](https://ui.shadcn.com/) (Biblioteca de componentes)
+- 🔧 [Biome](https://biomejs.dev/guides/configure-biome/) (Formatador/Linter Javascript)
+- 🖌️ [TailwindCSS](https://tailwindcss.com/) (Framework CSS)
+- 🎭 [Faker.js](https://fakerjs.dev/) (Biblioteca para mocking de dados)
+- 🛡️ [Zod](https://zod.dev/) (Biblioteca de validação de dados)
 
 ## 🧠 Mentes por trás do projeto
 - [☕ Benício](https://github.com/Dev-Benicio) (Desenvolvedor back-end)
