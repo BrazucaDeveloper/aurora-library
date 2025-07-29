@@ -1,13 +1,14 @@
 import type { ComponentProps } from 'react';
-import { twMerge } from 'tailwind-merge';
 import { getProviders, ImageContext } from './image-context';
 
 type ImageContainerProps = ComponentProps<'div'>;
 
 export function ImageContainer({ className, ...props }: ImageContainerProps) {
+	const providers = getProviders();
+	
 	return (
-		<ImageContext.Provider value={getProviders()}>
-			<div className={twMerge('', className)} {...props} />
+		<ImageContext.Provider value={providers}>
+			<div className={className} {...props} />
 		</ImageContext.Provider>
 	);
 }

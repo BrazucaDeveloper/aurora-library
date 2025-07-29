@@ -6,7 +6,6 @@ import {
 	PaginationPrevious,
 } from '@shadcn-ui/pagination';
 
-import { useId } from 'react';
 import { NavLink } from 'react-router';
 
 interface PageNavProps {
@@ -42,7 +41,7 @@ export function PageNav({
 				</PaginationItem>
 
 				{Array.from({ length: offset }, (_, index) => (
-					<PaginationItem key={useId()}>
+					<PaginationItem key={`pagination_${Math.random()}`}>
 						<NavLink
 							to={`?page=${index + 1}`}
 							className={`${current === index + 1 ? 'outline outline-foreground/20 bg-muted' : ''} hover:outline hover:outline-foreground/10 hover:bg-muted rounded px-3 py-1.5 h-12 mx-1 shadow text-sm transition-all`}

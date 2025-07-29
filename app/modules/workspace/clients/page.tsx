@@ -216,7 +216,7 @@ export function ClientsPage() {
 				open={isAlertDialogOpen}
 				onOpenChange={handleAlertDialog}
 			/>
-			<PageNav current={pagination.current} total={pagination.total()} />
+			<PageNav current={pagination.current} total={pagination.total} />
 		</Fragment>
 	);
 }

@@ -4,8 +4,6 @@ import { ClientsPage } from './page';
 import { useClients } from './test/useClients.mock';
 
 export async function clientLoader({ request }: Route.ClientLoaderArgs) {
-	console.log('Hello!');
-
 	const query = new URLSearchParams(request.url.split('?')[1]);
 
 	const { getClients, manyClients } = useClients();
@@ -15,7 +13,7 @@ export async function clientLoader({ request }: Route.ClientLoaderArgs) {
 		clients,
 		pagination: {
 			current: Number(query.get('page') ?? '1'),
-			total: manyClients,
+			total: manyClients(),
 		},
 	};
 }
