@@ -7,7 +7,7 @@
 ![Imagem da tela do sistema com dados fictícios](./preview.png)
 
 ## 💡 Sobre o projeto
-Projeto _fullstack_ para o gerenciamento de empréstimos de livros, bem como o gerenciamento dos livros e clientes da biblioteca. Feito para a empresa Aurora Library, tem o objetivo de facilitar o dia a dia de empréstimos na biblioteca. Por fim, o projeto, também fornece dashboard que resume as estátiscas da biblioteca com relação aos empréstimos, livros e clientes.
+Projeto _fullstack_ para o gerenciamento de empréstimos de livros, bem como o gerenciamento dos livros e clientes da biblioteca. Feito para a empresa Aurora Library, tem o objetivo de facilitar o dia a dia de empréstimos na biblioteca. Este é o front-end do projeto; para ver o back-end acesse o repositório do [dev-benicio](https://github.com/Dev-Benicio/aurora-library)
 
 ## 📦 Instalação
 Siga o passo a passo de como instalar o projeto na sua máquina.
