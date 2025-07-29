@@ -11,7 +11,6 @@
   
 </div>
 
-
 ## 💡 Sobre o projeto
 Projeto _fullstack_ para o gerenciamento de empréstimos de livros, bem como o gerenciamento dos livros e clientes da biblioteca. Feito para a empresa Aurora Library, tem o objetivo de facilitar o dia a dia de empréstimos na biblioteca. Este é o front-end do projeto; para ver o back-end acesse o repositório do [dev-benicio](https://github.com/Dev-Benicio/aurora-library)
 
@@ -53,14 +52,14 @@ Siga o passo a passo de como instalar o projeto na sua máquina.
 4. **Acesse o projeto pelo navegador no link: http://localhost:5173/**
 
 ## ⚒️ Ferramentas utilizadas
-- ⚡ [Node](https://nodejs.org/en) (Runtime Javascript)
-- 📦 [Pnpm](https://pnpm.io/pt/) (Gerenciador de pacotes)
-- 🚀 [React Router v7](https://reactrouter.com/home) (Framework Javascript)
-- 🎨 [Shadcn UI](https://ui.shadcn.com/) (Biblioteca de componentes)
-- 🔧 [Biome](https://biomejs.dev/guides/configure-biome/) (Formatador/Linter Javascript)
-- 🖌️ [TailwindCSS](https://tailwindcss.com/) (Framework CSS)
-- 🎭 [Faker.js](https://fakerjs.dev/) (Biblioteca para mocking de dados)
-- 🛡️ [Zod](https://zod.dev/) (Biblioteca de validação de dados)
+- [⚡ Node](https://nodejs.org/en) (Runtime Javascript)
+- [📦 Pnpm](https://pnpm.io/pt/) (Gerenciador de pacotes)
+- [🚀 React Router v7](https://reactrouter.com/home) (Framework Javascript)
+- [🎨 Shadcn UI](https://ui.shadcn.com/) (Biblioteca de componentes)
+- [🔧 Biome](https://biomejs.dev/guides/configure-biome/) (Formatador/Linter Javascript)
+- [🖌️ TailwindCSS](https://tailwindcss.com/) (Framework CSS)
+- [🎭 Faker.js](https://fakerjs.dev/) (Biblioteca para mocking de dados)
+- [🛡️ Zod](https://zod.dev/) (Biblioteca de validação de dados)
 
 ## 🧠 Mentes por trás do projeto
 - [☕ Benício](https://github.com/Dev-Benicio) (Desenvolvedor back-end)
