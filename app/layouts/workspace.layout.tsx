@@ -1,4 +1,4 @@
-import { Image } from '@my-components/image';
+import { Img } from '@my-components/image';
 import { Nav } from '@my-components/nav';
 import { Button } from '@shadcn-ui/button';
 import { Separator } from '@shadcn-ui/separator';
@@ -20,16 +20,13 @@ export default function WorkspaceLayout() {
 		<div className='flex flex-col h-dvh w-full bg-stone-200 dark:bg-stone-900 '>
 			<header className='flex items-center justify-between py-4 px-8 bg-background shadow ring ring-foreground/15'>
 				<div className='flex items-center gap-8'>
-					<Image.Container className='bg-stone-800 rounded-sm ring ring-stone-700 shadow'>
-						<Image.Control
-							src='/logo.png'
-							alt='Logo da biblioteca Aurora Library'
-							className='aspect-square size-10 p-2.25'
-						/>
-						<Image.Fallback>
-							<div className='animate-pulse size-10 p-2.25 rounded-sm bg-zinc-900' />
-						</Image.Fallback>
-					</Image.Container>
+					<Img
+						src='/logo.png'
+						alt='Logo da biblioteca Aurora Library'
+						className='aspect-square size-10 p-2.25 bg-stone-800 rounded-sm ring ring-stone-700 shadow'
+					>
+						<div className='animate-pulse size-10 p-2.25 rounded-sm bg-zinc-900' />
+					</Img>
 
 					<Nav.Container className='hidden md:flex gap-8'>
 						<Nav.Anchor to='/workspace/dashboard'>

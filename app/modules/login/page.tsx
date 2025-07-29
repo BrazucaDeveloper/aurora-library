@@ -1,3 +1,4 @@
+import { Field, Form } from '@my-components/form';
 import { Button } from '@shadcn-ui/button';
 import {
 	Card,
@@ -9,9 +10,11 @@ import {
 } from '@shadcn-ui/card';
 import { Input } from '@shadcn-ui/input';
 import { Label } from '@shadcn-ui/label';
-import { Form } from 'react-router';
+import { useId } from 'react';
 
 export function LoginPage() {
+	const formId = useId();
+
 	return (
 		<Card className='w-full max-w-md'>
 			<CardHeader>
@@ -22,8 +25,8 @@ export function LoginPage() {
 			</CardHeader>
 
 			<CardContent>
-				<Form method='POST' id='auth-form' className='space-y-6'>
-					<div className='space-y-2'>
+				<Form method='POST' id={formId} className='space-y-6'>
+					<Field>
 						<Label htmlFor='useremail'>Email</Label>
 						<Input
 							required
@@ -32,11 +35,11 @@ export function LoginPage() {
 							name='user-email'
 							autoComplete='email'
 							placeholder='Insert your email'
-							className='h-12'
+							className='h-11'
 						/>
-					</div>
+					</Field>
 
-					<div className='space-y-2'>
+					<Field>
 						<Label htmlFor='userpasswd'>Senha</Label>
 						<Input
 							required
@@ -45,18 +48,14 @@ export function LoginPage() {
 							name='user-passwd'
 							autoComplete='off'
 							placeholder='Insert your password'
-							className='h-12'
+							className='h-11'
 						/>
-					</div>
+					</Field>
 				</Form>
 			</CardContent>
 
-			<CardFooter className='mt-4'>
-				<Button
-					type='submit'
-					form='auth-form'
-					className='w-full h-12 text-balance'
-				>
+			<CardFooter>
+				<Button type='submit' form={formId} className='h-11 w-full text-balance'>
 					Continuar
 				</Button>
 			</CardFooter>

@@ -1,4 +1,4 @@
-import { Button } from '@components/button';
+import { Button } from '@shadcn-ui/button';
 import { ImagePlusIcon } from 'lucide-react';
 import type { ComponentProps } from 'react';
 
