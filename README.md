@@ -1,10 +1,16 @@
 <div align="center">
 
   # **- 📙 Aurora Library -**
+  
+  ![Imagem da tela do sistema com dados fictícios](./preview.png)
 
+  ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
+  ![Feito no Brasil](https://img.shields.io/badge/Feito%20no-Brasil-green?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiBmaWxsPSIjMDA5NzM5Ii8+CjxwYXRoIGQ9Ik0xMiA2TDE4IDEyTDEyIDE4TDYgMTJMMTIgNloiIGZpbGw9IiNGRkRGMDAiLz4KPC9zdmc+)
+  ![Status](https://img.shields.io/badge/Status-Development-yellow?style=for-the-badge)
+  ![React Router](https://img.shields.io/badge/React%20Router-v7-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+  
 </div>
 
-![Imagem da tela do sistema com dados fictícios](./preview.png)
 
 ## 💡 Sobre o projeto
 Projeto _fullstack_ para o gerenciamento de empréstimos de livros, bem como o gerenciamento dos livros e clientes da biblioteca. Feito para a empresa Aurora Library, tem o objetivo de facilitar o dia a dia de empréstimos na biblioteca. Este é o front-end do projeto; para ver o back-end acesse o repositório do [dev-benicio](https://github.com/Dev-Benicio/aurora-library)
